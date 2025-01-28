@@ -163,10 +163,8 @@ The database is modeled as an in-memory array or list of Book objects. Therefore
 
 Operations:
 
-Customer View:
-. Customers access the database via a `List<ReadableBook>` view, which is derived from the original `List<Book>` by exposing only the `ReadableBook` interface.
+Customer View: Customers access the database via a `List<ReadableBook>` view, which is derived from the original `List<Book>` by exposing only the `ReadableBook` interface.
    
-Staff View:
-. Library staff access the full `List<Book>` object to perform updates.
+Staff View: Library staff access the full `List<Book>` object to perform updates.
 
 
