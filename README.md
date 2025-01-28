@@ -6,7 +6,7 @@ For this exercise, in order to solve the two tasks, I will employ the principle 
 #### Read-Only Access for Customers
 Customers need to view book details, but they should not be able to change any information.
 
-Mechanism: Create a read-only version of the Book object using an interface or a wrapper class that only allows access to the book's details through getter methods. 
+Mechanism: Create a read-only version of the Book object using an interface that only allows access to the book's details through getter methods. 
 
 Consequences:
 1. Customers can only retrieve book information but cannot modify it.
@@ -33,24 +33,24 @@ Consequences:
  */
 public interface ReadableBook {
     /**
-     * Returns the title of the book.
-     * @return The book's title.
+     * Returns the title of the book
+     * @return The book's title
      * @.pre true
      * @.post RESULT == title of the book
      */
     String getTitle();
 
     /**
-     * Returns the publication year of the book.
-     * @return The book's publication year.
+     * Returns the publication year of the book
+     * @return The book's publication year
      * @.pre true
      * @.post RESULT == publication year of the book
      */
     int getPublicationYear();
 
     /**
-     * Returns the publisher of the book.
-     * @return The book's publisher.
+     * Returns the publisher of the book
+     * @return The book's publisher
      * @.pre true
      * @.post RESULT == publisher of the book
      */
@@ -58,7 +58,7 @@ public interface ReadableBook {
     
     /**
      * Returns the status of the book 
-     * @return The book's status.
+     * @return The book's status
      * @.pre true
      * @.post RESULT == status of the book
      */
