@@ -28,8 +28,8 @@ Consequences:
 
 ```java
 /**
- * Represents a read-only view of a book.
- * Provides access to book details without allowing modifications.
+ * Represents a read-only view of a book
+ * Provides access to book details without allowing modifications
  */
 public interface ReadableBook {
     /**
@@ -72,8 +72,8 @@ public interface ReadableBook {
 
 ```java
 /**
- * Represents a book in the library's database.
- * Provides both read-only views and editable access depending on the user role.
+ * Represents a book in the library's database
+ * Provides both read-only views and editable access depending on the user role
  */
 public class Book implements ReadableBook {
     // Fields
