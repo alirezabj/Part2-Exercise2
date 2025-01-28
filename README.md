@@ -1,25 +1,25 @@
 # Part2-Exercise2
 
-For this exercise, in order to solve the two roles, the principle of encapsulation will be employed. This involves creating a distinction between read-only access (for customers) and editable access (for staff) by designing separate mechanisms for each role.
+For this exercise, in order to solve the two tasks, I will employ the principle of encapsulation. In other words, I will design separate mechanisms to provide library customers with read-only access, while giving library staff the ability to edit.
 
 ## Mechanisms and Approach
 #### Read-Only Access for Customers
-Customers should have access to read-only views of Book objects, ensureing they can search for and view book information without modifying it.
+Customers need to view book details, but they should not be able to change any information.
 
-Mechanism: Create an immutable view of the Book object using an interface or a wrapper class that exposes only getter methods for the fields.
+Mechanism: Create a read-only version of the Book object using an interface or a wrapper class that only allows access to the book's details through getter methods. 
 
 Consequences:
 1. Customers can only retrieve book information but cannot modify it.
 2. The internal state of the Book object remains protected.
 
 #### Editable Access for Library Staff
-Library staff should have access to the full functionality of the Book class, including methods for modifying its fields.
+Library staff should be able to update or fix book information when needed
 
-Mechanism: Provide setter methods in the Book class that allow staff to update or delete book information. Staff operations are controlled through methods that validate changes and ensure class invariants are maintained.
+Mechanism: Allow staff to use the full Book class, which includes setter methods to modify the fields. These setter methods validate any changes to ensure the data stays correct.
 
 Consequences:
 1. Staff can update the database but must adhere to the defined class invariants.
-2. All modifications go through validation to preserve data integrity.
+2. Every change is carefully validated to ensure the information in the database stays reliable
 
 
 #### Speficiations
@@ -36,7 +36,7 @@ public interface ReadableBook {
      * Returns the title of the book.
      * @return The book's title.
      * @.pre true
-     * @.post RESULT == (title of the book)
+     * @.post RESULT == title of the book
      */
     String getTitle();
 
@@ -44,7 +44,7 @@ public interface ReadableBook {
      * Returns the publication year of the book.
      * @return The book's publication year.
      * @.pre true
-     * @.post RESULT == (publication year of the book)
+     * @.post RESULT == publication year of the book
      */
     int getPublicationYear();
 
@@ -52,15 +52,15 @@ public interface ReadableBook {
      * Returns the publisher of the book.
      * @return The book's publisher.
      * @.pre true
-     * @.post RESULT == (publisher of the book)
+     * @.post RESULT == publisher of the book
      */
     String getPublisher();
     
     /**
-     * Returns the status of the book (e.g., available, lost).
+     * Returns the status of the book 
      * @return The book's status.
      * @.pre true
-     * @.post RESULT == (status of the book)
+     * @.post RESULT == status of the book
      */
     String getStatus();
 }
@@ -80,7 +80,7 @@ public class Book implements ReadableBook {
     private String title;
     private int publicationYear;
     private String publisher;
-    private String status; // e.g., "available", "lost", "removed"
+    private String status; 
 
     // Constructor
     /**
@@ -90,7 +90,7 @@ public class Book implements ReadableBook {
      * @param publisher The publisher of the book.
      * @param status The initial status of the book.
      * @.pre title != null && publisher != null && publicationYear > 0
-     * @.post (book created with specified details)
+     * @.post book created with specified details
      */
     public Book(String title, int publicationYear, String publisher, String status) {
         this.title = title;
@@ -107,8 +107,8 @@ public class Book implements ReadableBook {
 
     // Setters (for library staff)
     /**
-     * Updates the title of the book.
-     * @param title The new title.
+     * Updates the title of the book
+     * @param title The new title
      * @.pre title != null
      * @.post this.getTitle() == title
      */
@@ -117,8 +117,8 @@ public class Book implements ReadableBook {
     }
 
     /**
-     * Updates the publication year of the book.
-     * @param publicationYear The new publication year.
+     * Updates the publication year of the book
+     * @param publicationYear The new publication year
      * @.pre publicationYear > 0
      * @.post this.getPublicationYear() == publicationYear
      */
@@ -127,8 +127,8 @@ public class Book implements ReadableBook {
     }
 
     /**
-     * Updates the publisher of the book.
-     * @param publisher The new publisher.
+     * Updates the publisher of the book
+     * @param publisher The new publisher
      * @.pre publisher != null
      * @.post this.getPublisher() == publisher
      */
@@ -137,8 +137,8 @@ public class Book implements ReadableBook {
     }
 
     /**
-     * Updates the status of the book (e.g., "lost", "removed").
-     * @param status The new status.
+     * Updates the status of the book 
+     * @param status The new status
      * @.pre status != null
      * @.post this.getStatus() == status
      */
@@ -164,8 +164,9 @@ The database is modeled as an in-memory array or list of Book objects. Therefore
 Operations:
 
 Customer View:
-1. Customers access the database via a `List<ReadableBook>` view, which is derived from the original `List<Book>` by exposing only the `ReadableBook` interface.
+. Customers access the database via a `List<ReadableBook>` view, which is derived from the original `List<Book>` by exposing only the `ReadableBook` interface.
+   
 Staff View:
-2. Library staff access the full `List<Book>` object to perform updates.
+. Library staff access the full `List<Book>` object to perform updates.
 
 
