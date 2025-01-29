@@ -34,7 +34,7 @@ Consequences:
 public interface ReadableBook {
     /**
      * Returns the title of the book
-     * @return The book's title
+    
      * @.pre true
      * @.post RESULT == title of the book
      */
@@ -42,7 +42,7 @@ public interface ReadableBook {
 
     /**
      * Returns the publication year of the book
-     * @return The book's publication year
+    
      * @.pre true
      * @.post RESULT == publication year of the book
      */
@@ -50,7 +50,7 @@ public interface ReadableBook {
 
     /**
      * Returns the publisher of the book
-     * @return The book's publisher
+    
      * @.pre true
      * @.post RESULT == publisher of the book
      */
@@ -58,7 +58,7 @@ public interface ReadableBook {
     
     /**
      * Returns the status of the book 
-     * @return The book's status
+    
      * @.pre true
      * @.post RESULT == status of the book
      */
