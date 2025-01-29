@@ -76,7 +76,7 @@ public interface ReadableBook {
  * Provides both read-only views and editable access depending on the user role
  */
 public class Book implements ReadableBook {
-    // Fields
+
     private String title;
     private int publicationYear;
     private String publisher;
@@ -85,10 +85,10 @@ public class Book implements ReadableBook {
     // Constructor
     /**
      * Constructs a Book object with the specified details.
-     * @param title The title of the book.
-     * @param publicationYear The publication year of the book.
-     * @param publisher The publisher of the book.
-     * @param status The initial status of the book.
+     * @param title The title of the book
+     * @param publicationYear The publication year of the book
+     * @param publisher The publisher of the book
+     * @param status The initial status of the book
      * @.pre title != null && publisher != null && publicationYear > 0
      * @.post book created with specified details
      */
