@@ -84,7 +84,7 @@ public class Book implements ReadableBook {
 
     // Constructor
     /**
-     * Constructs a Book object with the specified details.
+     * Constructs a Book object with the specified details
      * @param title The title of the book
      * @param publicationYear The publication year of the book
      * @param publisher The publisher of the book
